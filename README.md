@@ -26,9 +26,9 @@ errorDescription := TcError.AdsErrorCodeDescription(eAdsError);
 
 ## Manual
 
-`TYPE AdsErrorCodes` : Enum containing all ADS error codes.
-`FUNCTION ToAdsErrorCode`: Convert an ADS error code of type `UDINT` to the `AdsErrorCodes` datatype.
-`FUNCTION AdsErrorCodeDescription`: Returns an description of the error from the `AdsErrorCodes` datatype.
+- `TYPE AdsErrorCodes` : Enum containing all ADS error codes.
+- `FUNCTION ToAdsErrorCode`: Convert an ADS error code of type `UDINT` to the `AdsErrorCodes` datatype.
+- `FUNCTION AdsErrorCodeDescription`: Returns an description of the error from the `AdsErrorCodes` datatype.
 
 ### Example
 
