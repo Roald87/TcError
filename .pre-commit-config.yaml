@@ -1,0 +1,33 @@
+exclude: '.*\.(resx|Designer.cs)'
+repos:
+-   repo: https://github.com/pcdshub/pre-commit-hooks
+    rev: v1.1.0
+    hooks:
+    # Replaces all leading tabs with spaces
+    -   id: twincat-leading-tabs-remover
+    # Removes line ids. See point 4 of the link for why you don't need them
+    # https://cookncode.com/twincat/2021/06/07/tc-source-control-tips#2-creating-independent-files
+    -   id: twincat-lineids-remover
+    # Formats .tmc and .tpy files
+    -   id: twincat-xml-format
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.2.0
+    hooks:
+    # Removes trailing white spaces
+    -   id: trailing-whitespace
+    # Checks yaml files for parseable syntax
+    -   id: check-yaml
+    # Prevents git from committing large files
+    -   id: check-added-large-files
+-   repo: local
+    hooks:
+      # Name of the hook
+    -   id: stweep
+        # Hook name shown during hook execution
+        name: Format twincat files with stweep
+        # Where pre-commit can find the script it should call and how it should call it
+        entry: STweep.CLI format --settingsFile "settings.STweep" --path
+        # The language to use, in this case we're using a language present on the system.
+        language: system
+        # A valid regex pattern to define which files should be passed to STweep
+        files: '.*\.(TcPOU|TcDUT|TcTTO|TcGVL)'

@@ -1,0 +1,271 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="ToAdsErrorCode" Id="{7dc2b793-06ec-4288-8bd7-e14b441d0ed0}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION ToAdsErrorCode : AdsErrorCodes
+VAR_INPUT
+    errorCode : UDINT;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[CASE errorCode OF
+    0:
+        ToAdsErrorCode := AdsErrorCodes.ERR_NOERROR;
+    1:
+        ToAdsErrorCode := AdsErrorCodes.ERR_INTERNAL;
+    2:
+        ToAdsErrorCode := AdsErrorCodes.ERR_NORTIME;
+    3:
+        ToAdsErrorCode := AdsErrorCodes.ERR_ALLOCLOCKEDMEM;
+    4:
+        ToAdsErrorCode := AdsErrorCodes.ERR_INSERTMAILBOX;
+    5:
+        ToAdsErrorCode := AdsErrorCodes.ERR_WRONGRECEIVEHMSG;
+    6:
+        ToAdsErrorCode := AdsErrorCodes.ERR_TARGETPORTNOTFOUND;
+    7:
+        ToAdsErrorCode := AdsErrorCodes.ERR_TARGETMACHINENOTFOUND;
+    8:
+        ToAdsErrorCode := AdsErrorCodes.ERR_UNKNOWNCMDID;
+    9:
+        ToAdsErrorCode := AdsErrorCodes.ERR_BADTASKID;
+    10:
+        ToAdsErrorCode := AdsErrorCodes.ERR_NOIO;
+    11:
+        ToAdsErrorCode := AdsErrorCodes.ERR_UNKNOWNAMSCMD;
+    12:
+        ToAdsErrorCode := AdsErrorCodes.ERR_WIN32ERROR;
+    13:
+        ToAdsErrorCode := AdsErrorCodes.ERR_PORTNOTCONNECTED;
+    14:
+        ToAdsErrorCode := AdsErrorCodes.ERR_INVALIDAMSLENGTH;
+    15:
+        ToAdsErrorCode := AdsErrorCodes.ERR_INVALIDAMSNETID;
+    16:
+        ToAdsErrorCode := AdsErrorCodes.ERR_LOWINSTLEVEL;
+    17:
+        ToAdsErrorCode := AdsErrorCodes.ERR_NODEBUGINTAVAILABLE;
+    18:
+        ToAdsErrorCode := AdsErrorCodes.ERR_PORTDISABLED;
+    19:
+        ToAdsErrorCode := AdsErrorCodes.ERR_PORTALREADYCONNECTED;
+    20:
+        ToAdsErrorCode := AdsErrorCodes.ERR_AMSSYNC_W32ERROR;
+    21:
+        ToAdsErrorCode := AdsErrorCodes.ERR_AMSSYNC_TIMEOUT;
+    22:
+        ToAdsErrorCode := AdsErrorCodes.ERR_AMSSYNC_AMSERROR;
+    23:
+        ToAdsErrorCode := AdsErrorCodes.ERR_AMSSYNC_NOINDEXINMAP;
+    24:
+        ToAdsErrorCode := AdsErrorCodes.ERR_INVALIDAMSPORT;
+    25:
+        ToAdsErrorCode := AdsErrorCodes.ERR_NOMEMORY;
+    26:
+        ToAdsErrorCode := AdsErrorCodes.ERR_TCPSEND;
+    27:
+        ToAdsErrorCode := AdsErrorCodes.ERR_HOSTUNREACHABLE;
+    28:
+        ToAdsErrorCode := AdsErrorCodes.ERR_INVALIDAMSFRAGMENT;
+    29:
+        ToAdsErrorCode := AdsErrorCodes.ERR_TLSSEND;
+    30:
+        ToAdsErrorCode := AdsErrorCodes.ERR_ACCESSDENIED;
+    1280:
+        ToAdsErrorCode := AdsErrorCodes.ROUTERERR_NOLOCKEDMEMORY;
+    1281:
+        ToAdsErrorCode := AdsErrorCodes.ROUTERERR_RESIZEMEMORY;
+    1282:
+        ToAdsErrorCode := AdsErrorCodes.ROUTERERR_MAILBOXFULL;
+    1283:
+        ToAdsErrorCode := AdsErrorCodes.ROUTERERR_DEBUGBOXFULL;
+    1284:
+        ToAdsErrorCode := AdsErrorCodes.ROUTERERR_UNKNOWNPORTTYPE;
+    1285:
+        ToAdsErrorCode := AdsErrorCodes.ROUTERERR_NOTINITIALIZED;
+    1286:
+        ToAdsErrorCode := AdsErrorCodes.ROUTERERR_PORTALREADYINUSE;
+    1287:
+        ToAdsErrorCode := AdsErrorCodes.ROUTERERR_NOTREGISTERED;
+    1288:
+        ToAdsErrorCode := AdsErrorCodes.ROUTERERR_NOMOREQUEUES;
+    1289:
+        ToAdsErrorCode := AdsErrorCodes.ROUTERERR_INVALIDPORT;
+    1290:
+        ToAdsErrorCode := AdsErrorCodes.ROUTERERR_NOTACTIVATED;
+    1291:
+        ToAdsErrorCode := AdsErrorCodes.ROUTERERR_FRAGMENTBOXFULL;
+    1292:
+        ToAdsErrorCode := AdsErrorCodes.ROUTERERR_FRAGMENTTIMEOUT;
+    1293:
+        ToAdsErrorCode := AdsErrorCodes.ROUTERERR_TOBEREMOVED;
+    1792:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_ERROR;
+    1793:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_SRVNOTSUPP;
+    1794:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_INVALIDGRP;
+    1795:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_INVALIDOFFSET;
+    1796:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_INVALIDACCESS;
+    1797:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_INVALIDSIZE;
+    1798:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_INVALIDDATA;
+    1799:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_NOTREADY;
+    1800:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_BUSY;
+    1801:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_INVALIDCONTEXT;
+    1802:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_NOMEMORY;
+    1803:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_INVALIDPARM;
+    1804:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_NOTFOUND;
+    1805:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_SYNTAX;
+    1806:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_INCOMPATIBLE;
+    1807:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_EXISTS;
+    1808:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_SYMBOLNOTFOUND;
+    1809:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_SYMBOLVERSIONINVALID;
+    1810:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_INVALIDSTATE;
+    1811:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_TRANSMODENOTSUPP;
+    1812:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_NOTIFYHNDINVALID;
+    1813:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_CLIENTUNKNOWN;
+    1814:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_NOMOREHDLS;
+    1815:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_INVALIDWATCHSIZE;
+    1816:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_NOTINIT;
+    1817:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_TIMEOUT;
+    1818:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_NOINTERFACE;
+    1819:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_INVALIDINTERFACE;
+    1820:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_INVALIDCLSID;
+    1821:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_INVALIDOBJID;
+    1822:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_PENDING;
+    1823:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_ABORTED;
+    1824:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_WARNING;
+    1825:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_INVALIDARRAYIDX;
+    1826:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_SYMBOLNOTACTIVE;
+    1827:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_ACCESSDENIED;
+    1828:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_LICENSENOTFOUND;
+    1829:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_LICENSEEXPIRED;
+    1830:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_LICENSEEXCEEDED;
+    1831:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_LICENSEINVALID;
+    1832:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_LICENSESYSTEMID;
+    1833:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_LICENSENOTIMELIMIT;
+    1834:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_LICENSEFUTUREISSUE;
+    1835:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_LICENSETIMETOLONG;
+    1836:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_EXCEPTION;
+    1837:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_LICENSEDUPLICATED;
+    1838:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_SIGNATUREINVALID;
+    1839:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_CERTIFICATEINVALID;
+    1840:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_LICENSEOEMNOTFOUND;
+    1841:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_LICENSERESTRICTED;
+    1842:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_LICENSEDEMODENIED;
+    1843:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_INVALIDFNCID;
+    1844:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_OUTOFRANGE;
+    1845:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_INVALIDALIGNMENT;
+    1846:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_LICENSEPLATFORM;
+    1847:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_FORWARD_PL;
+    1848:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_FORWARD_DL;
+    1849:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_DEVICE_FORWARD_RT;
+    1856:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_CLIENT_ERROR;
+    1857:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_CLIENT_INVALIDPARM;
+    1858:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_CLIENT_LISTEMPTY;
+    1859:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_CLIENT_VARUSED;
+    1860:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_CLIENT_DUPLINVOKEID;
+    1861:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_CLIENT_SYNCTIMEOUT;
+    1862:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_CLIENT_W32ERROR;
+    1863:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_CLIENT_TIMEOUTINVALID;
+    1864:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_CLIENT_PORTNOTOPEN;
+    1865:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_CLIENT_NOAMSADDR;
+    1872:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_CLIENT_SYNCINTERNAL;
+    1873:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_CLIENT_ADDHASH;
+    1874:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_CLIENT_REMOVEHASH;
+    1875:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_CLIENT_NOMORESYM;
+    1876:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_CLIENT_SYNCRESINVALID;
+    1877:
+        ToAdsErrorCode := AdsErrorCodes.ADSERR_CLIENT_SYNCPORTLOCKED;
+    4096:
+        ToAdsErrorCode := AdsErrorCodes.RTERR_INTERNAL;
+    4097:
+        ToAdsErrorCode := AdsErrorCodes.RTERR_BADTIMERPERIODS;
+    4098:
+        ToAdsErrorCode := AdsErrorCodes.RTERR_INVALIDTASKPTR;
+    4099:
+        ToAdsErrorCode := AdsErrorCodes.RTERR_INVALIDSTACKPTR;
+    4100:
+        ToAdsErrorCode := AdsErrorCodes.RTERR_PRIOEXISTS;
+    4101:
+        ToAdsErrorCode := AdsErrorCodes.RTERR_NOMORETCB;
+    4102:
+        ToAdsErrorCode := AdsErrorCodes.RTERR_NOMORESEMAS;
+    4103:
+        ToAdsErrorCode := AdsErrorCodes.RTERR_NOMOREQUEUES;
+ELSE
+    ToAdsErrorCode := AdsErrorCodes.ERR_UNKNOWN;
+END_CASE
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

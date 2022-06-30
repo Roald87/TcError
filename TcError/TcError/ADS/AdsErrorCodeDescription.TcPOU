@@ -1,0 +1,304 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="AdsErrorCodeDescription" Id="{127aee61-2458-4d8d-a1ea-12a75cf5c697}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION AdsErrorCodeDescription : T_MaxString
+VAR_INPUT
+    adsErrorCode : AdsErrorCodes;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[CASE adsErrorCode OF
+    AdsErrorCodes.ERR_NOERROR:
+        AdsErrorCodeDescription := 'No error.';
+    AdsErrorCodes.ERR_INTERNAL:
+        AdsErrorCodeDescription := 'Internal error.';
+    AdsErrorCodes.ERR_NORTIME:
+        AdsErrorCodeDescription := 'No real-time.';
+    AdsErrorCodes.ERR_ALLOCLOCKEDMEM:
+        AdsErrorCodeDescription := 'Allocation locked – memory error.';
+    AdsErrorCodes.ERR_INSERTMAILBOX:
+        AdsErrorCodeDescription := 'Mailbox full – the ADS message could not be sent. Reducing the number of ADS messages per cycle will help.';
+    AdsErrorCodes.ERR_WRONGRECEIVEHMSG:
+        AdsErrorCodeDescription := 'Wrong HMSG.';
+    AdsErrorCodes.ERR_TARGETPORTNOTFOUND:
+        AdsErrorCodeDescription :=
+            'Target port not found – ADS server is not started or is not reachable.';
+    AdsErrorCodes.ERR_TARGETMACHINENOTFOUND:
+        AdsErrorCodeDescription := 'Target computer not found – AMS route was not found.';
+    AdsErrorCodes.ERR_UNKNOWNCMDID:
+        AdsErrorCodeDescription := 'Unknown command ID.';
+    AdsErrorCodes.ERR_BADTASKID:
+        AdsErrorCodeDescription := 'Invalid task ID.';
+    AdsErrorCodes.ERR_NOIO:
+        AdsErrorCodeDescription := 'No IO.';
+    AdsErrorCodes.ERR_UNKNOWNAMSCMD:
+        AdsErrorCodeDescription := 'Unknown AMS command.';
+    AdsErrorCodes.ERR_WIN32ERROR:
+        AdsErrorCodeDescription := 'Win32 error.';
+    AdsErrorCodes.ERR_PORTNOTCONNECTED:
+        AdsErrorCodeDescription := 'Port not connected.';
+    AdsErrorCodes.ERR_INVALIDAMSLENGTH:
+        AdsErrorCodeDescription := 'Invalid AMS length.';
+    AdsErrorCodes.ERR_INVALIDAMSNETID:
+        AdsErrorCodeDescription := 'Invalid AMS Net ID.';
+    AdsErrorCodes.ERR_LOWINSTLEVEL:
+        AdsErrorCodeDescription := 'Installation level is too low –TwinCAT 2 license error.';
+    AdsErrorCodes.ERR_NODEBUGINTAVAILABLE:
+        AdsErrorCodeDescription := 'No debugging available.';
+    AdsErrorCodes.ERR_PORTDISABLED:
+        AdsErrorCodeDescription := 'Port disabled – TwinCAT system service not started.';
+    AdsErrorCodes.ERR_PORTALREADYCONNECTED:
+        AdsErrorCodeDescription := 'Port already connected.';
+    AdsErrorCodes.ERR_AMSSYNC_W32ERROR:
+        AdsErrorCodeDescription := 'AMS Sync Win32 error.';
+    AdsErrorCodes.ERR_AMSSYNC_TIMEOUT:
+        AdsErrorCodeDescription := 'AMS Sync Timeout.';
+    AdsErrorCodes.ERR_AMSSYNC_AMSERROR:
+        AdsErrorCodeDescription := 'AMS Sync error.';
+    AdsErrorCodes.ERR_AMSSYNC_NOINDEXINMAP:
+        AdsErrorCodeDescription := 'No index map for AMS Sync available.';
+    AdsErrorCodes.ERR_INVALIDAMSPORT:
+        AdsErrorCodeDescription := 'Invalid AMS port.';
+    AdsErrorCodes.ERR_NOMEMORY:
+        AdsErrorCodeDescription := 'No memory.';
+    AdsErrorCodes.ERR_TCPSEND:
+        AdsErrorCodeDescription := 'TCP send error.';
+    AdsErrorCodes.ERR_HOSTUNREACHABLE:
+        AdsErrorCodeDescription := 'Host unreachable.';
+    AdsErrorCodes.ERR_INVALIDAMSFRAGMENT:
+        AdsErrorCodeDescription := 'Invalid AMS fragment.';
+    AdsErrorCodes.ERR_TLSSEND:
+        AdsErrorCodeDescription := 'TLS send error – secure ADS connection failed.';
+    AdsErrorCodes.ERR_ACCESSDENIED:
+        AdsErrorCodeDescription := 'Access denied – secure ADS access denied.';
+    AdsErrorCodes.ROUTERERR_NOLOCKEDMEMORY:
+        AdsErrorCodeDescription := 'Locked memory cannot be allocated.';
+    AdsErrorCodes.ROUTERERR_RESIZEMEMORY:
+        AdsErrorCodeDescription := 'The router memory size could not be changed.';
+    AdsErrorCodes.ROUTERERR_MAILBOXFULL:
+        AdsErrorCodeDescription :=
+            'The mailbox has reached the maximum number of possible messages.';
+    AdsErrorCodes.ROUTERERR_DEBUGBOXFULL:
+        AdsErrorCodeDescription :=
+            'The Debug mailbox has reached the maximum number of possible messages.';
+    AdsErrorCodes.ROUTERERR_UNKNOWNPORTTYPE:
+        AdsErrorCodeDescription := 'The port type is unknown.';
+    AdsErrorCodes.ROUTERERR_NOTINITIALIZED:
+        AdsErrorCodeDescription := 'The router is not initialized.';
+    AdsErrorCodes.ROUTERERR_PORTALREADYINUSE:
+        AdsErrorCodeDescription := 'The port number is already assigned.';
+    AdsErrorCodes.ROUTERERR_NOTREGISTERED:
+        AdsErrorCodeDescription := 'The port is not registered.';
+    AdsErrorCodes.ROUTERERR_NOMOREQUEUES:
+        AdsErrorCodeDescription := 'The maximum number of ports has been reached.';
+    AdsErrorCodes.ROUTERERR_INVALIDPORT:
+        AdsErrorCodeDescription := 'The port is invalid.';
+    AdsErrorCodes.ROUTERERR_NOTACTIVATED:
+        AdsErrorCodeDescription := 'The router is not active.';
+    AdsErrorCodes.ROUTERERR_FRAGMENTBOXFULL:
+        AdsErrorCodeDescription :=
+            'The mailbox has reached the maximum number for fragmented messages.';
+    AdsErrorCodes.ROUTERERR_FRAGMENTTIMEOUT:
+        AdsErrorCodeDescription := 'A fragment timeout has occurred.';
+    AdsErrorCodes.ROUTERERR_TOBEREMOVED:
+        AdsErrorCodeDescription := 'The port is removed.';
+    AdsErrorCodes.ADSERR_DEVICE_ERROR:
+        AdsErrorCodeDescription := 'General device error.';
+    AdsErrorCodes.ADSERR_DEVICE_SRVNOTSUPP:
+        AdsErrorCodeDescription := 'Service is not supported by the server.';
+    AdsErrorCodes.ADSERR_DEVICE_INVALIDGRP:
+        AdsErrorCodeDescription := 'Invalid index group.';
+    AdsErrorCodes.ADSERR_DEVICE_INVALIDOFFSET:
+        AdsErrorCodeDescription := 'Invalid index offset.';
+    AdsErrorCodes.ADSERR_DEVICE_INVALIDACCESS:
+        AdsErrorCodeDescription := 'Reading or writing not permitted.';
+    AdsErrorCodes.ADSERR_DEVICE_INVALIDSIZE:
+        AdsErrorCodeDescription := 'Parameter size not correct.';
+    AdsErrorCodes.ADSERR_DEVICE_INVALIDDATA:
+        AdsErrorCodeDescription := 'Invalid data values.';
+    AdsErrorCodes.ADSERR_DEVICE_NOTREADY:
+        AdsErrorCodeDescription := 'Device is not ready to operate.';
+    AdsErrorCodes.ADSERR_DEVICE_BUSY:
+        AdsErrorCodeDescription := 'Device is busy.';
+    AdsErrorCodes.ADSERR_DEVICE_INVALIDCONTEXT:
+        AdsErrorCodeDescription := 'Invalid operating system context. This can result from use of ADS function blocks in different tasks. It may be possible to resolve this through Multi-task data access synchronization in the PLC.';
+    AdsErrorCodes.ADSERR_DEVICE_NOMEMORY:
+        AdsErrorCodeDescription := 'Insufficient memory.';
+    AdsErrorCodes.ADSERR_DEVICE_INVALIDPARM:
+        AdsErrorCodeDescription := 'Invalid parameter values.';
+    AdsErrorCodes.ADSERR_DEVICE_NOTFOUND:
+        AdsErrorCodeDescription := 'Not found (files, ...).';
+    AdsErrorCodes.ADSERR_DEVICE_SYNTAX:
+        AdsErrorCodeDescription := 'Syntax error in file or command.';
+    AdsErrorCodes.ADSERR_DEVICE_INCOMPATIBLE:
+        AdsErrorCodeDescription := 'Objects do not match.';
+    AdsErrorCodes.ADSERR_DEVICE_EXISTS:
+        AdsErrorCodeDescription := 'Object already exists.';
+    AdsErrorCodes.ADSERR_DEVICE_SYMBOLNOTFOUND:
+        AdsErrorCodeDescription := 'Symbol not found.';
+    AdsErrorCodes.ADSERR_DEVICE_SYMBOLVERSIONINVALID:
+        AdsErrorCodeDescription :=
+            'Invalid symbol version. This can occur due to an online change. Create a new handle.';
+    AdsErrorCodes.ADSERR_DEVICE_INVALIDSTATE:
+        AdsErrorCodeDescription := 'Device (server) is in invalid state.';
+    AdsErrorCodes.ADSERR_DEVICE_TRANSMODENOTSUPP:
+        AdsErrorCodeDescription := 'AdsTransMode not supported.';
+    AdsErrorCodes.ADSERR_DEVICE_NOTIFYHNDINVALID:
+        AdsErrorCodeDescription := 'Notification handle is invalid.';
+    AdsErrorCodes.ADSERR_DEVICE_CLIENTUNKNOWN:
+        AdsErrorCodeDescription := 'Notification client not registered.';
+    AdsErrorCodes.ADSERR_DEVICE_NOMOREHDLS:
+        AdsErrorCodeDescription := 'No further handle available.';
+    AdsErrorCodes.ADSERR_DEVICE_INVALIDWATCHSIZE:
+        AdsErrorCodeDescription := 'Notification size too large.';
+    AdsErrorCodes.ADSERR_DEVICE_NOTINIT:
+        AdsErrorCodeDescription := 'Device not initialized.';
+    AdsErrorCodes.ADSERR_DEVICE_TIMEOUT:
+        AdsErrorCodeDescription := 'Device has a timeout.';
+    AdsErrorCodes.ADSERR_DEVICE_NOINTERFACE:
+        AdsErrorCodeDescription := 'Interface query failed.';
+    AdsErrorCodes.ADSERR_DEVICE_INVALIDINTERFACE:
+        AdsErrorCodeDescription := 'Wrong interface requested.';
+    AdsErrorCodes.ADSERR_DEVICE_INVALIDCLSID:
+        AdsErrorCodeDescription := 'Class ID is invalid.';
+    AdsErrorCodes.ADSERR_DEVICE_INVALIDOBJID:
+        AdsErrorCodeDescription := 'Object ID is invalid.';
+    AdsErrorCodes.ADSERR_DEVICE_PENDING:
+        AdsErrorCodeDescription := 'Request pending.';
+    AdsErrorCodes.ADSERR_DEVICE_ABORTED:
+        AdsErrorCodeDescription := 'Request is aborted.';
+    AdsErrorCodes.ADSERR_DEVICE_WARNING:
+        AdsErrorCodeDescription := 'Signal warning.';
+    AdsErrorCodes.ADSERR_DEVICE_INVALIDARRAYIDX:
+        AdsErrorCodeDescription := 'Invalid array index.';
+    AdsErrorCodes.ADSERR_DEVICE_SYMBOLNOTACTIVE:
+        AdsErrorCodeDescription := 'Symbol not active.';
+    AdsErrorCodes.ADSERR_DEVICE_ACCESSDENIED:
+        AdsErrorCodeDescription := 'Access denied.';
+    AdsErrorCodes.ADSERR_DEVICE_LICENSENOTFOUND:
+        AdsErrorCodeDescription := 'Missing license.';
+    AdsErrorCodes.ADSERR_DEVICE_LICENSEEXPIRED:
+        AdsErrorCodeDescription := 'License expired.';
+    AdsErrorCodes.ADSERR_DEVICE_LICENSEEXCEEDED:
+        AdsErrorCodeDescription := 'License exceeded.';
+    AdsErrorCodes.ADSERR_DEVICE_LICENSEINVALID:
+        AdsErrorCodeDescription := 'Invalid license.';
+    AdsErrorCodes.ADSERR_DEVICE_LICENSESYSTEMID:
+        AdsErrorCodeDescription := 'License problem: System ID is invalid.';
+    AdsErrorCodes.ADSERR_DEVICE_LICENSENOTIMELIMIT:
+        AdsErrorCodeDescription := 'License not limited in time.';
+    AdsErrorCodes.ADSERR_DEVICE_LICENSEFUTUREISSUE:
+        AdsErrorCodeDescription := 'License problem: Time in the future.';
+    AdsErrorCodes.ADSERR_DEVICE_LICENSETIMETOLONG:
+        AdsErrorCodeDescription := 'License period too long.';
+    AdsErrorCodes.ADSERR_DEVICE_EXCEPTION:
+        AdsErrorCodeDescription := 'Exception at system startup.';
+    AdsErrorCodes.ADSERR_DEVICE_LICENSEDUPLICATED:
+        AdsErrorCodeDescription := 'License file read twice.';
+    AdsErrorCodes.ADSERR_DEVICE_SIGNATUREINVALID:
+        AdsErrorCodeDescription := 'Invalid signature.';
+    AdsErrorCodes.ADSERR_DEVICE_CERTIFICATEINVALID:
+        AdsErrorCodeDescription := 'Invalid certificate.';
+    AdsErrorCodes.ADSERR_DEVICE_LICENSEOEMNOTFOUND:
+        AdsErrorCodeDescription := 'Public key not known from OEM.';
+    AdsErrorCodes.ADSERR_DEVICE_LICENSERESTRICTED:
+        AdsErrorCodeDescription := 'License not valid for this system ID.';
+    AdsErrorCodes.ADSERR_DEVICE_LICENSEDEMODENIED:
+        AdsErrorCodeDescription := 'Demo license prohibited.';
+    AdsErrorCodes.ADSERR_DEVICE_INVALIDFNCID:
+        AdsErrorCodeDescription := 'Invalid function ID.';
+    AdsErrorCodes.ADSERR_DEVICE_OUTOFRANGE:
+        AdsErrorCodeDescription := 'Outside the valid range.';
+    AdsErrorCodes.ADSERR_DEVICE_INVALIDALIGNMENT:
+        AdsErrorCodeDescription := 'Invalid alignment.';
+    AdsErrorCodes.ADSERR_DEVICE_LICENSEPLATFORM:
+        AdsErrorCodeDescription := 'Invalid platform level.';
+    AdsErrorCodes.ADSERR_DEVICE_FORWARD_PL:
+        AdsErrorCodeDescription := 'Context – forward to passive level.';
+    AdsErrorCodes.ADSERR_DEVICE_FORWARD_DL:
+        AdsErrorCodeDescription := 'Context – forward to dispatch level.';
+    AdsErrorCodes.ADSERR_DEVICE_FORWARD_RT:
+        AdsErrorCodeDescription := 'Context – forward to real-time.';
+    AdsErrorCodes.ADSERR_CLIENT_ERROR:
+        AdsErrorCodeDescription := 'Client error.';
+    AdsErrorCodes.ADSERR_CLIENT_INVALIDPARM:
+        AdsErrorCodeDescription := 'Service contains an invalid parameter.';
+    AdsErrorCodes.ADSERR_CLIENT_LISTEMPTY:
+        AdsErrorCodeDescription := 'Polling list is empty.';
+    AdsErrorCodes.ADSERR_CLIENT_VARUSED:
+        AdsErrorCodeDescription := 'Var connection already in use.';
+    AdsErrorCodes.ADSERR_CLIENT_DUPLINVOKEID:
+        AdsErrorCodeDescription := 'The called ID is already in use.';
+    AdsErrorCodes.ADSERR_CLIENT_SYNCTIMEOUT:
+        AdsErrorCodeDescription := 'Timeout has occurred – the remote terminal is not responding in the specified ADS timeout. The route setting of the remote terminal may be configured incorrectly.';
+    AdsErrorCodes.ADSERR_CLIENT_W32ERROR:
+        AdsErrorCodeDescription := 'Error in Win32 subsystem.';
+    AdsErrorCodes.ADSERR_CLIENT_TIMEOUTINVALID:
+        AdsErrorCodeDescription := 'Invalid client timeout value.';
+    AdsErrorCodes.ADSERR_CLIENT_PORTNOTOPEN:
+        AdsErrorCodeDescription := 'Port not open.';
+    AdsErrorCodes.ADSERR_CLIENT_NOAMSADDR:
+        AdsErrorCodeDescription := 'No AMS address.';
+    AdsErrorCodes.ADSERR_CLIENT_SYNCINTERNAL:
+        AdsErrorCodeDescription := 'Internal error in Ads sync.';
+    AdsErrorCodes.ADSERR_CLIENT_ADDHASH:
+        AdsErrorCodeDescription := 'Hash table overflow.';
+    AdsErrorCodes.ADSERR_CLIENT_REMOVEHASH:
+        AdsErrorCodeDescription := 'Key not found in the table.';
+    AdsErrorCodes.ADSERR_CLIENT_NOMORESYM:
+        AdsErrorCodeDescription := 'No symbols in the cache.';
+    AdsErrorCodes.ADSERR_CLIENT_SYNCRESINVALID:
+        AdsErrorCodeDescription := 'Invalid response received.';
+    AdsErrorCodes.ADSERR_CLIENT_SYNCPORTLOCKED:
+        AdsErrorCodeDescription := 'Sync Port is locked.';
+    AdsErrorCodes.RTERR_INTERNAL:
+        AdsErrorCodeDescription := 'Internal error in the real-time system.';
+    AdsErrorCodes.RTERR_BADTIMERPERIODS:
+        AdsErrorCodeDescription := 'Timer value is not valid.';
+    AdsErrorCodes.RTERR_INVALIDTASKPTR:
+        AdsErrorCodeDescription := 'Task pointer has the invalid value 0 (zero).';
+    AdsErrorCodes.RTERR_INVALIDSTACKPTR:
+        AdsErrorCodeDescription := 'Stack pointer has the invalid value 0 (zero).';
+    AdsErrorCodes.RTERR_PRIOEXISTS:
+        AdsErrorCodeDescription := 'The request task priority is already assigned.';
+    AdsErrorCodes.RTERR_NOMORETCB:
+        AdsErrorCodeDescription :=
+            'No free TCB (Task Control Block) available. The maximum number of TCBs is 64.';
+    AdsErrorCodes.RTERR_NOMORESEMAS:
+        AdsErrorCodeDescription :=
+            'No free semaphores available. The maximum number of semaphores is 64.';
+    AdsErrorCodes.RTERR_NOMOREQUEUES:
+        AdsErrorCodeDescription :=
+            'No free space available in the queue. The maximum number of positions in the queue is 64.';
+    AdsErrorCodes.RTERR_EXTIRQALREADYDEF:
+        AdsErrorCodeDescription := 'An external synchronization interrupt is already applied.';
+    AdsErrorCodes.RTERR_EXTIRQNOTDEF:
+        AdsErrorCodeDescription := 'No external sync interrupt applied.';
+    AdsErrorCodes.RTERR_EXTIRQINSTALLFAILED:
+        AdsErrorCodeDescription :=
+            'Application of the external synchronization interrupt has failed.';
+    AdsErrorCodes.RTERR_IRQLNOTLESSOREQUAL:
+        AdsErrorCodeDescription := 'Call of a service function in the wrong context';
+    AdsErrorCodes.RTERR_VMXNOTSUPPORTED:
+        AdsErrorCodeDescription := 'Intel VT-x extension is not supported.';
+    AdsErrorCodes.RTERR_VMXDISABLED:
+        AdsErrorCodeDescription := 'Intel VT-x extension is not enabled in the BIOS.';
+    AdsErrorCodes.RTERR_VMXCONTROLSMISSING:
+        AdsErrorCodeDescription := 'Missing function in Intel VT-x extension.';
+    AdsErrorCodes.RTERR_VMXENABLEFAILS:
+        AdsErrorCodeDescription := 'Activation of Intel VT-x fails.';
+    AdsErrorCodes.WSAETIMEDOUT:
+        AdsErrorCodeDescription := 'A connection timeout has occurred while establishing the connection. Either the remote terminal did not respond properly after a certain period of time, or the established connection could not be maintained because the connected host did not respond.';
+    AdsErrorCodes.WSAECONNREFUSED:
+        AdsErrorCodeDescription := 'Connection refused. Connection couldnt be established because the target computer has rejected it. Error can result from an attempt to connect to a service that is inactive on the external host, i.e. a service for which no server application is running.';
+    AdsErrorCodes.WSAEHOSTUNREACH:
+        AdsErrorCodeDescription :=
+            'No route to host - a socket operation referred to an unavailable host.';
+ELSE
+    AdsErrorCodeDescription :=
+        Tc2_Standard.CONCAT('Unknown ADS error code ', TO_STRING(adsErrorCode));
+END_CASE
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
