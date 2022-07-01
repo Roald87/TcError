@@ -4,6 +4,11 @@
     <Declaration><![CDATA[{attribute 'qualified_only'}
 {attribute 'strict'}
 {attribute 'to_string'}
+(*
+All ADS error codes.
+
+Source: https://infosys.beckhoff.com/english.php?content=../content/1033/tf6701_tc3_iot_communication_mqtt/374277003.html&id=
+*)
 TYPE AdsErrorCodes : (
     ERR_NOERROR := 0,
     ERR_INTERNAL,

@@ -1,7 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
   <POU Name="ToAdsErrorCode" Id="{7dc2b793-06ec-4288-8bd7-e14b441d0ed0}" SpecialFunc="None">
-    <Declaration><![CDATA[FUNCTION ToAdsErrorCode : AdsErrorCodes
+    <Declaration><![CDATA[(*
+Convert an ADS error code of type UDINT to the AdsErrorCodes datatype.
+
+Source: https://infosys.beckhoff.com/english.php?content=../content/1033/tf6701_tc3_iot_communication_mqtt/374277003.html&id=
+*)
+FUNCTION ToAdsErrorCode : AdsErrorCodes
 VAR_INPUT
     errorCode : UDINT;
 END_VAR
