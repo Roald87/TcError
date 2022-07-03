@@ -8,16 +8,18 @@ let (|Regex|_|) pattern input =
     if m.Success then Some(List.tail [ for g in m.Groups -> g.Value ])
     else None
 
-let win32pattern = @"<p>(\d+)<\/p>.*?<p>(0x[0-9A-F]{8})<\/p>.+?<p>([A-Z_<br \/>]+?)<\/p>.*?<p>(.*?)<\/p>" 
+let win32pattern = @"<p>(?<decimal>\d+)<\/p>.*?<p>(?<hex>0x[0-9A-F]{8})<\/p>.+?<p>(?<name>[A-Z_<br \/>]+)<\/p>.*?<p>(?<description>.*?)<\/p>" 
+
+let writeAllLines filename contents = File.WriteAllLines(filename, contents)
 
 [<EntryPoint>]
 let main argv =
     let htmlContent = File.ReadAllText("../../../win32_errors.html")
     Regex(win32pattern, RegexOptions.Singleline).Matches(htmlContent)
-    |> Seq.take 3
-    |> Seq.map (fun m -> m.Groups |> Seq.tail |> Seq.toArray)
-    |> Seq.map (fun x -> $"{x.[2]}")
-    |> Seq.iter (printfn "%s")
+    |> Seq.map (fun m -> m.Groups)
+    |> Seq.map (fun g -> $"""    {g.["name"]}:={g.["decimal"]},""")
+    |> Seq.toArray
+    |> writeAllLines "enum_win32error.txt"
 
     0
     
