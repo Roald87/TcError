@@ -13,6 +13,10 @@ let win32pattern = @"<p>(\d+)<\/p>.*?<p>(0x[0-9A-F]{8})<\/p>.+?<p>([A-Z_<br \/>]
 [<EntryPoint>]
 let main argv =
     let htmlContent = File.ReadAllText("../../../win32_errors.html")
-    printfn "matches: %i"  (Regex(win32pattern, RegexOptions.Singleline).Matches(htmlContent).Count)
+    Regex(win32pattern, RegexOptions.Singleline).Matches(htmlContent)
+    |> Seq.map (fun m -> m.Groups |> Seq.tail)
+    |> Seq.take 3
+    |> Seq.iter (printfn "%A")
+
     0
     
