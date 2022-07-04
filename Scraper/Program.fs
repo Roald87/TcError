@@ -14,15 +14,39 @@ let writeAllLines filename contents = File.WriteAllLines(filename, contents)
 
 let rereplace (pattern: string) (replacement: string) (input: string) =  Regex.Replace(input, pattern, replacement)
 
+let replace (oldString: string) (newString: string) (input: string) = input.Replace(oldString, newString)
+
+let getErrorDetails html =
+    Regex(win32pattern, RegexOptions.Singleline).Matches(html)
+    |> Seq.map (fun m -> m.Groups)
+
+let toEnum groups = 
+    groups
+    |> Seq.map (fun (g: GroupCollection) -> $"""    {g.["name"]} := {g.["decimal"]},""")
+    |> Seq.toArray
+    
+let toDescription groups =
+    groups 
+    |> Seq.map (
+        fun (g: GroupCollection) -> 
+            let description = g.["description"].ToString() |> replace "'" ""
+            $"""    Win32ErrorCodes.{g.["name"]}: Win32ErrorCodeDescription := '{description}';""")
+    |> Seq.toArray
+
 [<EntryPoint>]
 let main argv =
-    let htmlContent = File.ReadAllText("../../../win32_errors.html") |> rereplace @"<br />" ""
+    let errors = 
+        File.ReadAllText("../../../win32_errors.html") 
+        |> rereplace @"<br />" ""
+        |> getErrorDetails
     
-    Regex(win32pattern, RegexOptions.Singleline).Matches(htmlContent)
-    |> Seq.map (fun m -> m.Groups)
-    |> Seq.map (fun g -> $"""    {g.["name"]} := {g.["decimal"]},""")
-    |> Seq.toArray
+    errors
+    |> toEnum
     |> writeAllLines "enum_win32error.txt"
+
+    errors
+    |> toDescription
+    |> writeAllLines "description_win32error.txt"
 
     0
     
