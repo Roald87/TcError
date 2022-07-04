@@ -1,6 +1,4 @@
-﻿// Learn more about F# at http://fsharp.org
-
-open System.IO
+﻿open System.IO
 open System.Text.RegularExpressions
 
 let (|Regex|_|) pattern input =
