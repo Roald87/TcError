@@ -31,11 +31,18 @@ let toDescription groups =
             $"""    Win32ErrorCodes.{g.["name"]}: Win32ErrorCodeDescription := '{description}';""")
     |> Seq.toArray
 
+let toCode : seq<GroupCollection> -> string[] =
+   Seq.map (
+       fun g -> 
+           let description = g.["description"].ToString() |> replace "'" ""
+           $"""    {g.["decimal"]} : ToWin32ErrorCode := Win32ErrorCodes.{g.["name"]};""")
+   >> Seq.toArray
+
 [<EntryPoint>]
 let main argv =
     let errors = 
         File.ReadAllText("../../../win32_errors.html") 
-        |> rereplace @"<br />" ""
+        |> rereplace @"<br /> " ""
         |> getErrorDetails
     
     errors
@@ -46,5 +53,8 @@ let main argv =
     |> toDescription
     |> writeAllLines "description_win32error.txt"
 
-    0
-    
+    errors
+    |> toCode
+    |> writeAllLines "to_code_win32error.txt"
+
+    0    
