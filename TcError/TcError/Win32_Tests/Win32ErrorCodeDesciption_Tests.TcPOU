@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="Win32ErrorCodeDesciption_Tests" Id="{2f90ed74-a809-49bb-b887-3ce9960e7cde}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK Win32ErrorCodeDesciption_Tests EXTENDS TcUnit.FB_TestSuite
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[DescriptionOfKnownErrorCode();
+DescriptionOfUnknownErrorCode();
+]]></ST>
+    </Implementation>
+    <Method Name="DescriptionOfKnownErrorCode" Id="{df328d3c-bff8-450d-8afa-639df839f5ad}">
+      <Declaration><![CDATA[METHOD DescriptionOfKnownErrorCode
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TcUnit.TEST('DescriptionOfKnownErrorCode');
+
+AssertEquals_STRING(
+    Expected:='The system cannot find the file specified.',
+    Actual:=Win32ErrorCodeDescription(Win32ErrorCodes.ERROR_FILE_NOT_FOUND),
+    Message:='Error description not correct.'
+);
+
+TcUnit.TEST_FINISHED();
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="DescriptionOfUnknownErrorCode" Id="{da94d620-520f-42ad-a0e2-e07ed6451ef2}">
+      <Declaration><![CDATA[METHOD DescriptionOfUnknownErrorCode
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TcUnit.TEST('DescriptionOfUnknownErrorCode');
+
+AssertEquals_STRING(
+    Expected:='Unknown Win32 error code.',
+    Actual:=Win32ErrorCodeDescription(Win32ErrorCodes.ERR_UNKNOWN),
+    Message:='Error description not correct.'
+);
+
+TcUnit.TEST_FINISHED();
+]]></ST>
+      </Implementation>
+    </Method>
+  </POU>
+</TcPlcObject>

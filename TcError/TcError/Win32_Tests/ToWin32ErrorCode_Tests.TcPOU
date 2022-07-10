@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="ToWin32ErrorCode_Tests" Id="{642d2499-70f1-4caf-86fe-53406ef48db3}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK ToWin32ErrorCode_Tests EXTENDS TcUnit.FB_TestSuite
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[ConversionOfValidErrorCode();
+ConversionOfInvalidErrorCode();
+]]></ST>
+    </Implementation>
+    <Method Name="ConversionOfInvalidErrorCode" Id="{ff4af6de-feee-4784-afe4-36057cd637eb}">
+      <Declaration><![CDATA[METHOD ConversionOfInvalidErrorCode
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TcUnit.TEST('ConversionOfInvalidErrorCode');
+
+AssertEquals_UDINT(
+    Expected:=Win32ErrorCodes.ERR_UNKNOWN,
+    Actual:=ToWin32ErrorCode(1234567),
+    Message:='Error conversion not correct.'
+);
+
+TcUnit.TEST_FINISHED();
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="ConversionOfValidErrorCode" Id="{e4b8f277-05e1-427d-8433-5540129e6254}">
+      <Declaration><![CDATA[METHOD ConversionOfValidErrorCode
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TcUnit.TEST('ConversionOfValidErrorCode');
+
+AssertEquals_UDINT(
+    Expected:=Win32ErrorCodes.ERROR_FILE_EXISTS,
+    Actual:=ToWin32ErrorCode(80),
+    Message:='Error conversion not correct.'
+);
+
+TcUnit.TEST_FINISHED();
+]]></ST>
+      </Implementation>
+    </Method>
+  </POU>
+</TcPlcObject>

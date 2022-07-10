@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="UnitTests" Id="{cc8a0e38-2881-4bc0-a9ad-843c806f9d72}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM UnitTests
+VAR
+    {attribute 'analysis' := '-33'}
+    toWin32ErrorCode_Tests : ToWin32ErrorCode_Tests;
+    {attribute 'analysis' := '-33'}
+    win32ErrorCodeDescription_Tests : Win32ErrorCodeDesciption_Tests;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[TcUnit.RUN();
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

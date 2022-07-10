@@ -38,7 +38,7 @@ VAR
 	adsErrorId : UDINT := 1802;
 	adsErrorCode : AdsErrorCodes;
 	errorDescription : T_MaxString;
-END_VAR	
+END_VAR
 
 adsErrorCode := TcError.ToAdsErrorCode(adsErrorId); // ADSERR_DEVICE_NOMEMORY;
 errorDescription := TcError.AdsErrorCodeDescription(adsErrorCode); // 'Insufficient memory.'
