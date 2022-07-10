@@ -36,6 +36,9 @@
     <Compile Include="ADS\ToAdsErrorCode.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Win32\ToWin32ErrorCode.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Win32\Win32ErrorCodeDescription.TcPOU">
       <SubType>Code</SubType>
     </Compile>
