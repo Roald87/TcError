@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
   <POU Name="Win32ErrorCodeDescription" Id="{c65feef7-6c2f-4979-8989-851ea7d3e261}" SpecialFunc="None">
-    <Declaration><![CDATA[(* 
+    <Declaration><![CDATA[(*
 Returns an description of the error from the Win32ErrorCodes datatype.
 
 Source: https://infosys.beckhoff.com/content/1033/devicemanager/391166347.html?id=8711134805786442486
