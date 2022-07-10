@@ -300,8 +300,7 @@ END_VAR
         AdsErrorCodeDescription :=
             'No route to host - a socket operation referred to an unavailable host.';
 ELSE
-    AdsErrorCodeDescription :=
-        Tc2_Standard.CONCAT('Unknown ADS error code.');
+    AdsErrorCodeDescription := 'Unknown ADS error code.';
 END_CASE
 ]]></ST>
     </Implementation>
