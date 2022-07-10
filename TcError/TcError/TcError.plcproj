@@ -16,9 +16,9 @@
     <Implicit_Jitter_Distribution>{df1c1378-822f-4259-8e3c-7926b9ba0612}</Implicit_Jitter_Distribution>
     <LibraryReferences>{eacfa2b6-2bab-4325-abad-a557882e7a56}</LibraryReferences>
     <Company>Roald</Company>
-    <Released>false</Released>
+    <Released>true</Released>
     <Title>TcError</Title>
-    <ProjectVersion>0.1.0</ProjectVersion>
+    <ProjectVersion>0.2.0</ProjectVersion>
     <Author>Roald Ruiter</Author>
     <Description>Translate TwinCAT error codes</Description>
   </PropertyGroup>
