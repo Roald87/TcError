@@ -55,6 +55,9 @@
     <Compile Include="Win32_Tests\ToWin32ErrorCode_Tests.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Win32_Tests\Win32ErrorCodeDesciption_Tests.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <PlaceholderReference Include="Tc2_Standard">
