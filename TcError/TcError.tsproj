@@ -1,6 +1,13 @@
 <?xml version="1.0"?>
 <TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.29">
-	<Project ProjectGUID="{9CC5E219-55A3-421A-A6C4-2224F60C664B}" ShowHideConfigurations="#x3c7">
+	<Project ProjectGUID="{9CC5E219-55A3-421A-A6C4-2224F60C664B}" TargetNetId="39.61.164.95.1.1" Target64Bit="true" ShowHideConfigurations="#x3c7">
+		<System>
+			<Tasks>
+				<Task Id="3" Priority="20" CycleTime="100000" AmsPort="350" AdtTasks="true">
+					<Name>PlcTask</Name>
+				</Task>
+			</Tasks>
+		</System>
 		<Plc>
 			<Project File="TcError.xti"/>
 		</Plc>
