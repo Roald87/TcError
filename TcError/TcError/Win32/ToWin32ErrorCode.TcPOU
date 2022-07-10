@@ -8,9 +8,7 @@ Source: https://infosys.beckhoff.com/content/1033/devicemanager/391166347.html?i
 *)
 FUNCTION ToWin32ErrorCode : Win32ErrorCodes
 VAR_INPUT
-    errorCode : Win32ErrorCodes;
-END_VAR
-VAR
+    errorCode : UDINT;
 END_VAR
 ]]></Declaration>
     <Implementation>
