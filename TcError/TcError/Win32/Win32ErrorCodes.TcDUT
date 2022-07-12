@@ -7,7 +7,8 @@
 (*
 All Win32 error codes.
 
-Source: https://infosys.beckhoff.com/content/1033/devicemanager/391166347.html?id=8711134805786442486
+## Source
+https://infosys.beckhoff.com/content/1033/devicemanager/391166347.html?id=8711134805786442486
 *)
 TYPE Win32ErrorCodes : (
     ERROR_SUCCESS := 0,
