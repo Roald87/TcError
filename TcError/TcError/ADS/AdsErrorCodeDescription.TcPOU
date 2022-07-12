@@ -4,7 +4,14 @@
     <Declaration><![CDATA[(*
 Returns an description of the error from the AdsErrorCodes datatype.
 
-Source: https://infosys.beckhoff.com/content/1033/tf6701_tc3_iot_communication_mqtt/374277003.html?id=1376723717835500292
+## Example
+```
+adsErrorCode := AdsErrorCodes.ADSERR_DEVICE_NOMEMORY;
+errorDescription := TcError.AdsErrorCodeDescription(adsErrorCode); // 'Insufficient memory.'
+```
+
+## Source
+https://infosys.beckhoff.com/content/1033/tf6701_tc3_iot_communication_mqtt/374277003.html?id=1376723717835500292
 *)
 FUNCTION AdsErrorCodeDescription : T_MaxString
 VAR_INPUT
