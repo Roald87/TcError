@@ -4,7 +4,14 @@
     <Declaration><![CDATA[(*
 Returns an description of the error from the Win32ErrorCodes datatype.
 
-Source: https://infosys.beckhoff.com/content/1033/devicemanager/391166347.html?id=8711134805786442486
+## Example
+```
+win32ErrorCode := Win32ErrorCodes.ERROR_CANNOT_MAKE;
+errorDescription := Win32ErrorCodeDescription(win32ErrorCode); // 'The directory or file cannot be created.'
+```
+
+## Source
+https://infosys.beckhoff.com/content/1033/devicemanager/391166347.html?id=8711134805786442486
 *)
 FUNCTION Win32ErrorCodeDescription : T_MaxString
 VAR_INPUT
