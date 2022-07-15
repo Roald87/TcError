@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
   <POU Name="Win32ErrorCodeDesciption_Tests" Id="{2f90ed74-a809-49bb-b887-3ce9960e7cde}" SpecialFunc="None">
-    <Declaration><![CDATA[FUNCTION_BLOCK Win32ErrorCodeDesciption_Tests EXTENDS TcUnit.FB_TestSuite
+    <Declaration><![CDATA[{attribute 'hide'}
+FUNCTION_BLOCK Win32ErrorCodeDesciption_Tests EXTENDS TcUnit.FB_TestSuite
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[DescriptionOfKnownErrorCode();
