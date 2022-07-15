@@ -4,7 +4,14 @@
     <Declaration><![CDATA[(*
 Convert an ADS error code of type UDINT to the AdsErrorCodes datatype.
 
-Source: https://infosys.beckhoff.com/english.php?content=../content/1033/tf6701_tc3_iot_communication_mqtt/374277003.html&id=
+## Example
+```
+adsErrorId := 1802;
+adsErrorCode := TcError.ToAdsErrorCode(adsErrorId); // ADSERR_DEVICE_NOMEMORY;
+```
+
+## Source
+https://infosys.beckhoff.com/english.php?content=../content/1033/tf6701_tc3_iot_communication_mqtt/374277003.html&id=
 *)
 FUNCTION ToAdsErrorCode : AdsErrorCodes
 VAR_INPUT

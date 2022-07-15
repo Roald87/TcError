@@ -4,7 +4,14 @@
     <Declaration><![CDATA[(*
 Convert an Win32 error code of type UDINT to the Win32ErrorCodes datatype.
 
-Source: https://infosys.beckhoff.com/content/1033/devicemanager/391166347.html?id=8711134805786442486
+## Example
+```
+win32ErrorId := 82;
+win32ErrorCode := ToWin32ErrorCode(win32ErrorId); // ERROR_CANNOT_MAKE;
+```
+
+## Source
+https://infosys.beckhoff.com/content/1033/devicemanager/391166347.html?id=8711134805786442486
 *)
 FUNCTION ToWin32ErrorCode : Win32ErrorCodes
 VAR_INPUT
