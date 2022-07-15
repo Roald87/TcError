@@ -7,7 +7,7 @@ Convert an Win32 error code of type UDINT to the Win32ErrorCodes datatype.
 ## Example
 ```
 win32ErrorId := 82;
-win32ErrorCode := TcError.ToWin32ErrorCode(win32ErrorId); // ERROR_CANNOT_MAKE;
+win32ErrorCode := ToWin32ErrorCode(win32ErrorId); // ERROR_CANNOT_MAKE;
 ```
 
 ## Source
