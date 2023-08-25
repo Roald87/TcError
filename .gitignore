@@ -197,7 +197,6 @@ ModelManifest.xml
 # TwinCAT3
 _Boot/
 _CompileInfo/
-_Libraries/
 
 *.~u
 
@@ -206,8 +205,6 @@ _Libraries/
 *.tmy
 *.tpy
 *.tclrs
-*.library
-*.compiled-library
 *.compileinfo
 *.project.~u
 *.tsproj.bak

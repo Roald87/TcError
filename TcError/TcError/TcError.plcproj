@@ -16,9 +16,9 @@
     <Implicit_Jitter_Distribution>{df1c1378-822f-4259-8e3c-7926b9ba0612}</Implicit_Jitter_Distribution>
     <LibraryReferences>{eacfa2b6-2bab-4325-abad-a557882e7a56}</LibraryReferences>
     <Company>Roald</Company>
-    <Released>true</Released>
+    <Released>false</Released>
     <Title>TcError</Title>
-    <ProjectVersion>0.2.1</ProjectVersion>
+    <ProjectVersion>0.2.1.0</ProjectVersion>
     <Author>Roald Ruiter</Author>
     <Description>Translate TwinCAT error codes</Description>
   </PropertyGroup>
@@ -72,17 +72,22 @@
       <DefaultResolution>Tc3_Module, * (Beckhoff Automation GmbH)</DefaultResolution>
       <Namespace>Tc3_Module</Namespace>
     </PlaceholderReference>
-    <PlaceholderReference Include="TcUnit">
-      <DefaultResolution>TcUnit, * (www.tcunit.org)</DefaultResolution>
-      <Namespace>TcUnit</Namespace>
-    </PlaceholderReference>
   </ItemGroup>
   <ItemGroup>
+    <PlaceholderResolution Include="SysDir">
+      <Resolution>SysDir, 3.5.12.0 (System)</Resolution>
+    </PlaceholderResolution>
+    <PlaceholderResolution Include="SysFile">
+      <Resolution>SysFile, 3.5.9.0 (System)</Resolution>
+    </PlaceholderResolution>
     <PlaceholderResolution Include="Tc2_Standard">
       <Resolution>Tc2_Standard, 3.3.3.0 (Beckhoff Automation GmbH)</Resolution>
     </PlaceholderResolution>
     <PlaceholderResolution Include="Tc2_System">
-      <Resolution>Tc2_System, 3.4.25.0 (Beckhoff Automation GmbH)</Resolution>
+      <Resolution>Tc2_System, 3.4.26.0 (Beckhoff Automation GmbH)</Resolution>
+    </PlaceholderResolution>
+    <PlaceholderResolution Include="Tc2_Utilities">
+      <Resolution>Tc2_Utilities, 3.3.54.0 (Beckhoff Automation GmbH)</Resolution>
     </PlaceholderResolution>
     <PlaceholderResolution Include="Tc3_Module">
       <Resolution>Tc3_Module, 3.3.21.0 (Beckhoff Automation GmbH)</Resolution>
@@ -92,6 +97,11 @@
     <None Include="TcError.tmc">
       <SubType>Content</SubType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <LibraryReference Include="TcUnit,1.2.0.0,www.tcunit.org">
+      <Namespace>TcUnit</Namespace>
+    </LibraryReference>
   </ItemGroup>
   <ProjectExtensions>
     <PlcProjectOptions>
