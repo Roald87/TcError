@@ -2,6 +2,10 @@
 
 Functions and datatypes which describe TwinCAT errors.
 
+## Installation
+
+[Download](https://github.com/Roald87/TcError/releases) from the releases page, or install via [📦 Twinpack](https://github.com/Zeugwerk/Twinpack).
+
 ## Example
 
 Can be used to wrap existing TwinCAT Function Blocks to add clear error codes and messages.
