@@ -236,3 +236,4 @@ nugets/
 .vscode/
 CorrectionDevice/packages/
 CorrectionDevice/Monitor/
+.Zeugwerk/
