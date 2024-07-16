@@ -137,6 +137,8 @@ END_VAR
     17828:
         ToNcErrorCode :=
             NcErrorCodes.CONTROLLER_ERROR_INTERNAL_ERROR_CONTROLERR_RANGE_AXISIDPRESP0;
+ELSE
+    ToNcErrorCode := NcErrorCodes.ERR_UNKNOWN;
 END_CASE
 ]]></ST>
     </Implementation>

@@ -5,8 +5,25 @@
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[ConversionOfValidErrorCode();
+ConversionOfInvalidErrorCode();
 ]]></ST>
     </Implementation>
+    <Method Name="ConversionOfInvalidErrorCode" Id="{3e4f1ab9-0c8e-0978-369b-6d4bc925d2ff}">
+      <Declaration><![CDATA[METHOD ConversionOfInvalidErrorCode
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TcUnit.TEST('ConversionOfInvalidErrorCode');
+
+AssertEquals_DINT(
+    Expected:=NcErrorCodes.ERR_UNKNOWN,
+    Actual:=ToNcErrorCode(1234567),
+    Message:='Error conversion not correct.'
+);
+
+TcUnit.TEST_FINISHED();
+]]></ST>
+      </Implementation>
+    </Method>
     <Method Name="ConversionOfValidErrorCode" Id="{7468ef5f-d38a-04ed-37df-1008d5c474e3}">
       <Declaration><![CDATA[METHOD ConversionOfValidErrorCode
 ]]></Declaration>
