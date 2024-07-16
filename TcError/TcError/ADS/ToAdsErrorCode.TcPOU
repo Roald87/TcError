@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+<TcPlcObject Version="1.1.0.1">
   <POU Name="ToAdsErrorCode" Id="{7dc2b793-06ec-4288-8bd7-e14b441d0ed0}" SpecialFunc="None">
     <Declaration><![CDATA[(*
 Convert an ADS error code of type UDINT to the AdsErrorCodes datatype.

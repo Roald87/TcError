@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+<TcPlcObject Version="1.1.0.1">
   <POU Name="ToWin32ErrorCode" Id="{fda7a771-6ab4-482e-ac10-0dfbc6445e30}" SpecialFunc="None">
     <Declaration><![CDATA[(*
 Convert an Win32 error code of type UDINT to the Win32ErrorCodes datatype.

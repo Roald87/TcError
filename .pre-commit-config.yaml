@@ -1,33 +1,61 @@
-exclude: '.*\.(resx|Designer.cs)'
+exclude: '.*\.(resx|Designer.cs|xti|tcscopex)'
 repos:
--   repo: https://github.com/pcdshub/pre-commit-hooks
-    rev: v1.1.0
+  - repo: https://github.com/pcdshub/pre-commit-hooks.git
+    rev: v1.7.0
     hooks:
-    # Replaces all leading tabs with spaces
-    -   id: twincat-leading-tabs-remover
-    # Removes line ids. See point 4 of the link for why you don't need them
-    # https://cookncode.com/twincat/2021/06/07/tc-source-control-tips#2-creating-independent-files
-    -   id: twincat-lineids-remover
-    # Formats .tmc and .tpy files
-    -   id: twincat-xml-format
--   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v3.2.0
+      # Replace leading tabs with 4 spaces
+      - id: twincat-leading-tabs-remover
+      # remove TwinCAT line ID lines
+      - id: twincat-lineids-remover
+      # Use lxml to beautify TwinCAT xml files
+      - id: twincat-xml-format
+      # Check if all used libraries' version numbers are fixed
+      - id: check-fixed-library-versions
+      # Checks if the product version is saved in the TwinCAT source file.
+      - id: no-product-version
+      # Affixes newlines to ST segments
+      - id: twincat-st-newline
+      # Check if minimize id changes is selected in the plc project file.
+      # See https://www.youtube.com/watch?v=KKpBtaYjfWo&t=935s why to do this.
+      - id: minimize-id-changes
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0 # Use the ref you want to point at
     hooks:
-    # Removes trailing white spaces
-    -   id: trailing-whitespace
-    # Checks yaml files for parseable syntax
-    -   id: check-yaml
-    # Prevents git from committing large files
-    -   id: check-added-large-files
--   repo: local
+      # Removes trailing white spaces
+      - id: trailing-whitespace
+      # Checks yaml files for parseable syntax
+      - id: check-yaml
+      # Prevents git from committing large files
+      - id: check-added-large-files
+      - id: end-of-file-fixer
+        # These files are either edited in the IDE or auto generated. No point in adding a new line at the end.
+        exclude: '\.(TcPOU|TcDUT|TcTTO|TcGVL|TcGTLO|TcVMO|TcIO|TcVis|plcproj|tsproj|tcdmproj|tcdmdrv|tcmproj|xti|STweep)$'
+      - id: requirements-txt-fixer
+  # For this hook you need to have the Stweep.CLI installed and buy a license
+  # See https://www.stweep.com/stweep-cli-beta-releases/
+  - repo: local
     hooks:
-      # Name of the hook
-    -   id: stweep
-        # Hook name shown during hook execution
-        name: Format twincat files with stweep
-        # Where pre-commit can find the script it should call and how it should call it
-        entry: STweep.CLI format --settingsFile "settings.STweep" --path
-        # The language to use, in this case we're using a language present on the system.
-        language: system
-        # A valid regex pattern to define which files should be passed to STweep
+      - id: stweep
+        name: Format TwinCAT files with STweep
+        entry: python stweep_format.py --settingsFile=settings.STweep
+        language: python
+        # All files need to be passed at once, or else the license activation/deactivation fails
+        require_serial: true
         files: '.*\.(TcPOU|TcDUT|TcTTO|TcGVL)'
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v2.7.1
+    hooks:
+      - id: prettier
+        exclude_types: ["svg"]
+        exclude: "win32_errors.html$"
+        additional_dependencies:
+          - prettier@2.6.2
+          - "@prettier/plugin-xml@0.12.0"
+  - repo: https://github.com/rruiter87/tcunit-precommit
+    rev: v0.2.0
+    hooks:
+      - id: unittest-name-fixer
+        # Remove this line to prevent the names to be automatically fixed
+        args: [--fix]
+        # Ajust this to how you name your unit tests
+        files: '.*_Tests\.TcPOU'

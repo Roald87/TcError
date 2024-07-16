@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+<TcPlcObject Version="1.1.0.1">
   <POU Name="ToWin32ErrorCode_Tests" Id="{642d2499-70f1-4caf-86fe-53406ef48db3}" SpecialFunc="None">
     <Declaration><![CDATA[{attribute 'hide'}
 FUNCTION_BLOCK ToWin32ErrorCode_Tests EXTENDS TcUnit.FB_TestSuite

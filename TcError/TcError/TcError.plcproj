@@ -5,7 +5,7 @@
     <ProjectGuid>{b60915d1-af55-41eb-90e8-f68f82a4691e}</ProjectGuid>
     <SubObjectsSortedByName>True</SubObjectsSortedByName>
     <DownloadApplicationInfo>true</DownloadApplicationInfo>
-    <WriteProductVersion>true</WriteProductVersion>
+    <WriteProductVersion>false</WriteProductVersion>
     <GenerateTpy>false</GenerateTpy>
     <Name>PLC</Name>
     <ProgramVersion>3.1.4023.0</ProgramVersion>
@@ -16,11 +16,12 @@
     <Implicit_Jitter_Distribution>{df1c1378-822f-4259-8e3c-7926b9ba0612}</Implicit_Jitter_Distribution>
     <LibraryReferences>{eacfa2b6-2bab-4325-abad-a557882e7a56}</LibraryReferences>
     <Company>Roald87</Company>
-    <Released>true</Released>
+    <Released>false</Released>
     <Title>TcError</Title>
     <ProjectVersion>0.2.2.0</ProjectVersion>
     <Author>Roald Ruiter</Author>
     <Description>Translate TwinCAT error codes</Description>
+    <CombineIds>true</CombineIds>
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="ADS" />

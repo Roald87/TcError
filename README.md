@@ -68,3 +68,4 @@ END_VAR
 
 win32ErrorCode := TcError.ToWin32ErrorCode(win32ErrorId); // ERROR_CANNOT_MAKE;
 errorDescription := TcError.Win32ErrorCodeDescription(win32ErrorCode); // 'The directory or file cannot be created.'
+```
