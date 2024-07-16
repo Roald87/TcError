@@ -46,7 +46,13 @@
     <Compile Include="NC\ToNcErrorCode.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="NC\NcErrorCodeDescription.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="NC_Tests\ToNcErrorCode_Tests.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NC_Tests\NcErrorCodeDesciption_Tests.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="PlcTask.TcTTO">
