@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="NcErrorCodeDescription" Id="{4a0565f1-16c1-0724-1369-59c0c1905318}" SpecialFunc="None">
+    <Declaration><![CDATA[(*
+Returns an description of the error from the NcErrorCodes datatype.
+
+## Example
+```
+ncErrorCode := NcErrorCodes.CONTROLLER_ERROR_LAG_ERROR_WINDOW_VELOCITY_NOT_ALLOWED;
+errorDescription := NcErrorCodeDescription(ncErrorCode); // 'The value for the lag error window (velocity) is not allowed.'
+```
+
+## Source
+https://infosys.beckhoff.com/content/1033/tc3ncerrcode/1521556875.html?id=2911757239699425890
+*)
+FUNCTION NcErrorCodeDescription : T_MaxString
+VAR_INPUT
+    ncErrorCode : NcErrorCodes;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[CASE ncErrorCode OF
+    NcErrorCodes.CONTROLLER_ERROR_CONTROLLER_ID_NOT_ALLOWED:
+        NcErrorCodeDescription := 'The value for the controller ID is not allowed, e.g. because it has already been assigned, is less than or equal to zero, or is greater than 255.';
+    NcErrorCodes.CONTROLLER_ERROR_CONTROLLER_TYPE_NOT_ALLOWED:
+        NcErrorCodeDescription :=
+            'The value for the controller type is unacceptable because it is not defined.';
+    NcErrorCodes.CONTROLLER_ERROR_OPERATION_MODE_CONTROLLER_NOT_ALLOWED:
+        NcErrorCodeDescription := 'The value for the controller operating mode is not allowed.';
+    NcErrorCodes.CONTROLLER_ERROR_WEIGHTING_OF_THE_VELOCITY_PRE_CONTROL_NOT_ALLOWED:
+        NcErrorCodeDescription :=
+            'The value for the percentage weighting of the velocity pre-control is not allowed.';
+    NcErrorCodes.CONTROLLER_ERROR_LAG_ERROR_MONITOR_POSITION_NOT_ALLOWED:
+        NcErrorCodeDescription :=
+            'The value for the activation of the lag error monitor is not allowed.';
+    NcErrorCodes.CONTROLLER_ERROR_LAG_MONITORING_VELOCITY_NOT_ALLOWED:
+        NcErrorCodeDescription :=
+            'The value for the activation of the lag error monitoring (velocity) is not allowed.';
+    NcErrorCodes.CONTROLLER_ERROR_LAG_ERROR_WINDOW_POSITION_NOT_ALLOWED:
+        NcErrorCodeDescription :=
+            'The value for the lag error window (maximum allowable lag error) is not allowed.';
+    NcErrorCodes.CONTROLLER_ERROR_LAG_ERROR_FILTER_TIME_POSITION_NOT_ALLOWED:
+        NcErrorCodeDescription :=
+            'The value for the lag error filter time (position) is not allowed.';
+    NcErrorCodes.CONTROLLER_ERROR_LAG_ERROR_WINDOW_VELOCITY_NOT_ALLOWED:
+        NcErrorCodeDescription := 'The value for the lag error window (velocity) is not allowed.';
+    NcErrorCodes.CONTROLLER_ERROR_LAG_ERROR_FILTER_TIME_VELOCITY_NOT_ALLOWED:
+        NcErrorCodeDescription :=
+            'The value for the lag error filter time (velocity) is not allowed.';
+    NcErrorCodes.CONTROLLER_ERROR_CONTROLLER_OUTPUT_LIMITATION_OUTPUT_LIMITATION_NOT_ALLOWED:
+        NcErrorCodeDescription := 'The value for the output limitation of the controller at the total manipulated variable is invalid.';
+    NcErrorCodes.CONTROLLER_ERROR_PROPORTIONAL_GAIN_KV_OR_KP_CONTROLLER_NOT_ALLOWED:
+        NcErrorCodeDescription :=
+            'The value for the proportional gain (Kv factor or Kp factor) is not allowed.';
+    NcErrorCodes.CONTROLLER_ERROR_INTEGRAL_ACTION_TIME_TN_CONTROLLER_NOT_ALLOWED_POSITION:
+        NcErrorCodeDescription :=
+            'The value for the integral action time is not allowed (I part of the PID T1 controller).';
+    NcErrorCodes.CONTROLLER_ERROR_RATE_TIME_TV_CONTROLLER_NOT_ALLOWED_POSITION:
+        NcErrorCodeDescription := 'The value for the derivative action time is not allowed (D part of the PID T1 controller).';
+    NcErrorCodes.CONTROLLER_ERROR_DAMPING_TIME_TD_CONTROLLER_NOT_ALLOWED_POSITION:
+        NcErrorCodeDescription :=
+            'The value for the damping time is not allowed (D part of the PID T1 controller).';
+    NcErrorCodes.CONTROLLER_ERROR_ACTIVATION_OF_THE_AUTOMATIC_OFFSET_CALIBRATION_NOT_ALLOWED:
+        NcErrorCodeDescription := 'Activation of the automatic offset calibration is only possible for certain types of controller (with no I component).';
+    NcErrorCodes.CONTROLLER_ERROR_ADDITIONAL_PROPORTIONAL_GAIN_KV_OR_KP_CONTROLLER_NOT_ALLOWED:
+        NcErrorCodeDescription := 'The value for the second term of the proportional gain (Kv factor or Kp factor) is not allowed.';
+    NcErrorCodes
+        .CONTROLLER_ERROR_REFERENCE_VELOCITY_FOR_ADDITIONAL_PROP_GAIN_CONTROLLER_NOT_ALLOWED:
+        NcErrorCodeDescription := 'The value for the reference velocity percentage data entry, to which the additional proportional gain is applied, is not allowed.';
+    NcErrorCodes.CONTROLLER_ERROR_PROPORTIONAL_GAIN_PA_PROPORTION_NOT_ALLOWED:
+        NcErrorCodeDescription :=
+            'The value for the proportional gain (Pa factor) is not allowed.';
+    NcErrorCodes.CONTROLLER_ERROR_PROPORTIONAL_GAIN_KV_CONTROLLER_NOT_ALLOWED:
+        NcErrorCodeDescription :=
+            'The value for the proportional gain (Kv factor) is not allowed.';
+    NcErrorCodes.CONTROLLER_ERROR_INTEGRAL_ACTION_TIME_TN_CONTROLLER_NOT_ALLOWED_VELOCITY:
+        NcErrorCodeDescription :=
+            'The value for the integral action time is not allowed (I part of the PID T1 controller).';
+    NcErrorCodes.CONTROLLER_ERROR_VELOCITY_FILTER_TIME_NOT_ALLOWED:
+        NcErrorCodeDescription :=
+            'The parameter for the velocity filter time in seconds is invalid (P-T1 filter).';
+    NcErrorCodes.CONTROLLER_ERROR_DEAD_RANGE_NOT_ALLOWED:
+        NcErrorCodeDescription := 'The value for the dead range (neutral zone) of the position error or the velocity error (control deviation) is not allowed.';
+    NcErrorCodes.CONTROLLER_ERROR_PROPORTIONAL_GAIN_KCP_NOT_ALLOWED:
+        NcErrorCodeDescription := 'The parameter for the proportional gain Kcp of the slave coupling difference control is invalid.';
+    NcErrorCodes.CONTROLLER_ERROR_RATE_TIME_TV_CONTROLLER_NOT_ALLOWED:
+        NcErrorCodeDescription := 'The value for the derivative action time is not allowed (D part of the PID T1 controller).';
+    NcErrorCodes.CONTROLLER_ERROR_DAMPING_TIME_TD_CONTROLLER_NOT_ALLOWED:
+        NcErrorCodeDescription :=
+            'The value for the damping time is not allowed (D part of the PID T1 controller).';
+    NcErrorCodes.CONTROLLER_ERROR_LIMITATION_OF_THE_I_PART_NOT_ALLOWED:
+        NcErrorCodeDescription :=
+            'The parameter for limiting the I-part of a PI- or PID-controller is not allowed.';
+    NcErrorCodes.CONTROLLER_ERROR_LIMITATION_OF_THE_D_PART_NOT_ALLOWED:
+        NcErrorCodeDescription :=
+            'The parameter for limiting the D-part of a PI- or PID-controller is not allowed.';
+    NcErrorCodes.CONTROLLER_ERROR_PARAMETER_DEACTIVATION_OF_THE_I_PART_DURING_TRAVEL_NOT_ALLOWED:
+        NcErrorCodeDescription :=
+            'The boolean parameter for switching off the I-part during active positioning is invalid.';
+    NcErrorCodes.CONTROLLER_ERROR_PARAMETER_FILTER_TIME_FOR_P_T2_FILTER_NOT_ALLOWED:
+        NcErrorCodeDescription := 'The time T0 in seconds is not permissible as a filter time for the P-T2 element of the velocity controller.';
+    NcErrorCodes.CONTROLLER_ERROR_VELOCITY_OBSERVER_PARAMETERIZED_MODE_IS_NOT_ALLOWED:
+        NcErrorCodeDescription := 'The parameterized mode (0=OFF, 1=LUENBERGER) for the velocity observer of the special NC controller in the torque interface is not permitted.';
+    NcErrorCodes.CONTROLLER_ERROR_VELOCITY_OBSERVER_MOTOR_TORQUE_CONSTANT_KT_OR_KF_IS_NOT_ALLOWED:
+        NcErrorCodeDescription := 'The parameter for the motor torque constant Kt (rotary motor) or Kf (linear motor) of the velocity observer of the special NC controller in the torque interface is invalid.';
+    NcErrorCodes.CONTROLLER_ERROR_VELOCITY_OBSERVER_MOTOR_MOMENT_OF_INERTIA_JM_IS_NOT_ALLOWED:
+        NcErrorCodeDescription := 'The parameter for the motor moment of inertia JM of the velocity observer of the special NC controller in the torque interface is invalid.';
+    NcErrorCodes.CONTROLLER_ERROR_VELOCITY_OBSERVER_BANDWIDTH_F0_IS_NOT_ALLOWED:
+        NcErrorCodeDescription := 'The parameter for the bandwidth f0 of the velocity observer of the special NC controller in the torque interface is invalid.';
+    NcErrorCodes.CONTROLLER_ERROR_VELOCITY_OBSERVER_CORRECTION_FACTOR_KC_IS_NOT_ALLOWED:
+        NcErrorCodeDescription := 'The parameter for the correction factor kc of the velocity observer of the special NC controller in the torque interface is invalid.';
+    NcErrorCodes
+        .CONTROLLER_ERROR_VELOCITY_OBSERVER_TIME_CONSTANT_T_FOR_1ST_ORDER_FILTER_NOT_ALLOWED:
+        NcErrorCodeDescription := 'The time constant T for the 1st order velocity filter (PID-T2 or "Lead Lag") of the velocity observer of the special NC controller in the torque interface is not allowed.';
+    NcErrorCodes
+        .CONTROLLER_ERROR_VELOCITY_OBSERVER_AMPLITUDE_DAMPING_FOR_2ND_ORDER_FILTER_NOT_ALLOWED:
+        NcErrorCodeDescription := 'The high-pass/low-pass amplitude attenuation dHP or dTP for the 2nd order velocity filter ("bi-quad") of the velocity observer of the special NC controller in the torque interface is not allowed.';
+    NcErrorCodes.CONTROLLER_ERROR_VELOCITY_OBSERVER_FREQUENCY_FOR_2ND_ORDER_FILTER_NOT_ALLOWED:
+        NcErrorCodeDescription := 'The high-pass/low-pass frequency fHP or fTP for the 2nd order velocity filter ("bi-quad") of the velocity observer of the special NC controller in the torque interface is not allowed.';
+    NcErrorCodes.CONTROLLER_ERROR_CONTROLLER_INITIALIZATION:
+        NcErrorCodeDescription := 'The controller has not been initialized. Although the controller has been created, the rest of the initialization has not been performed (1. Initialization of controller, 2. Reset of controller).';
+    NcErrorCodes.CONTROLLER_ERROR_AXIS_ADDRESS:
+        NcErrorCodeDescription :=
+            'The controller does not know its axis, or the axis address has not been initialized.';
+    NcErrorCodes.CONTROLLER_ERROR_DRIVE_ADDRESS:
+        NcErrorCodeDescription :=
+            'The controller does not know its drive, or the drive address has not been initialized.';
+    NcErrorCodes.CONTROLLER_ERROR_LAG_ERROR_MONITOR_POSITION:
+        NcErrorCodeDescription := 'While the lag error monitor was active (position), the lag error was exceeded by an amount greater than the lag error window and which lasting longer than the parameterized lag error filter time.';
+    NcErrorCodes.CONTROLLER_ERROR_LAG_MONITORING_VELOCITY:
+        NcErrorCodeDescription := 'With active lag error monitoring (velocity) a velocity lag error exceedance has occurred, whose magnitude is greater than the lag error window, and whose duration is longer than the parameterized lag error filter time.';
+    NcErrorCodes.CONTROLLER_ERROR_INTERNAL_ERROR_CONTROLERR_RANGE_AREA_ASIDE:
+        NcErrorCodeDescription := 'Internal error: CONTROLERR_RANGE_AREA_ASIDE';
+    NcErrorCodes.CONTROLLER_ERROR_INTERNAL_ERROR_CONTROLERR_RANGE_AREA_BSIDE:
+        NcErrorCodeDescription := 'Internal error: CONTROLERR_RANGE_AREA_BSIDE';
+    NcErrorCodes.CONTROLLER_ERROR_INTERNAL_ERROR_CONTROLERR_RANGE_QNENN:
+        NcErrorCodeDescription := 'Internal error: CONTROLERR_RANGE_QNENN';
+    NcErrorCodes.CONTROLLER_ERROR_INTERNAL_ERROR_CONTROLERR_RANGE_PNENN:
+        NcErrorCodeDescription := 'Internal error: CONTROLERR_RANGE_PNENN';
+    NcErrorCodes.CONTROLLER_ERROR_INTERNAL_ERROR_CONTROLERR_RANGE_AXISIDPRESP0:
+        NcErrorCodeDescription := 'Internal error: CONTROLERR_RANGE_AXISIDPRESP0';
+    NcErrorCodes.ERR_UNKNOWN:
+        NcErrorCodeDescription := 'Unknown NC error code.';
+ELSE
+    NcErrorCodeDescription := 'Error code not recognized';
+END_CASE
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="NcErrorCodeDesciption_Tests" Id="{2a01964b-d729-0c6c-1161-7caaeffc11b9}" SpecialFunc="None">
+    <Declaration><![CDATA[{attribute 'hide'}
+FUNCTION_BLOCK NcErrorCodeDesciption_Tests EXTENDS TcUnit.FB_TestSuite
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[DescriptionOfKnownErrorCode();
+DescriptionOfUnknownErrorCode();
+]]></ST>
+    </Implementation>
+    <Method Name="DescriptionOfKnownErrorCode" Id="{6b771d41-b300-0e14-2c35-22903cd9302d}">
+      <Declaration><![CDATA[METHOD DescriptionOfKnownErrorCode
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TcUnit.TEST('DescriptionOfKnownErrorCode');
+
+AssertEquals_STRING(
+    Expected:='The controller has not been initialized. Although the controller has been created, the rest of the initialization has not been performed (1. Initialization of controller, 2. Reset of controller).',
+    Actual:=NcErrorCodeDescription(NcErrorCodes.CONTROLLER_ERROR_CONTROLLER_INITIALIZATION),
+    Message:='Error description not correct.'
+);
+
+TcUnit.TEST_FINISHED();
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="DescriptionOfUnknownErrorCode" Id="{d5e7d011-2190-0612-00e2-6f438e7752a7}">
+      <Declaration><![CDATA[METHOD DescriptionOfUnknownErrorCode
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[TcUnit.TEST('DescriptionOfUnknownErrorCode');
+
+AssertEquals_STRING(
+    Expected:='Unknown NC error code.',
+    Actual:=NcErrorCodeDescription(NcErrorCodes.ERR_UNKNOWN),
+    Message:='Error description not correct.'
+);
+
+TcUnit.TEST_FINISHED();
+]]></ST>
+      </Implementation>
+    </Method>
+  </POU>
+</TcPlcObject>
