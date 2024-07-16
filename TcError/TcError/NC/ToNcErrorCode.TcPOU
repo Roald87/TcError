@@ -7,7 +7,7 @@ Convert a NC error code of type UDINT to the NcErrorCodes datatype.
 ## Example
 ```
 ncErrorId := 17693;
-ncErrorCode := ToWin32ErrorCode(ncErrorId); // CONTROLLER_ERROR_DEAD_RANGE_NOT_ALLOWED;
+ncErrorCode := ToNcErrorCode(ncErrorId); // CONTROLLER_ERROR_DEAD_RANGE_NOT_ALLOWED;
 ```
 
 ## Source
