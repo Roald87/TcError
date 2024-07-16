@@ -25,6 +25,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="ADS" />
+    <Folder Include="NC" />
+    <Folder Include="NC_Tests" />
     <Folder Include="Win32_Tests" />
     <Folder Include="Win32" />
   </ItemGroup>
@@ -36,6 +38,15 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ADS\ToAdsErrorCode.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NC\NcErrorCodes.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NC\ToNcErrorCode.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NC_Tests\ToNcErrorCode_Tests.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="PlcTask.TcTTO">

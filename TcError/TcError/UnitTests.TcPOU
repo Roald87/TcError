@@ -8,6 +8,8 @@ VAR
     toWin32ErrorCode_Tests : ToWin32ErrorCode_Tests;
     {attribute 'analysis' := '-33'}
     win32ErrorCodeDescription_Tests : Win32ErrorCodeDesciption_Tests;
+    {attribute 'analysis' := '-33'}
+    toNcErrorCode_Tests : ToNcErrorCode_Tests;
 END_VAR
 ]]></Declaration>
     <Implementation>
