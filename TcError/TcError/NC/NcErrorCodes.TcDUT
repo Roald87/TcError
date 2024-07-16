@@ -3,6 +3,11 @@
   <DUT Name="NcErrorCodes" Id="{4a2189ab-d0dd-07c8-117c-3fab1f036fcf}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 {attribute 'strict'}
+(*
+Some NC Error codes
+
+Source: https://infosys.beckhoff.com/content/1033/tc3ncerrcode/1521556875.html?id=2911757239699425890
+*)
 TYPE NcErrorCodes : (
     CONTROLLER_ERROR_CONTROLLER_ID_NOT_ALLOWED := 17664,
     CONTROLLER_ERROR_CONTROLLER_TYPE_NOT_ALLOWED := 17665,

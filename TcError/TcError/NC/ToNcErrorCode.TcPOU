@@ -1,7 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1">
   <POU Name="ToNcErrorCode" Id="{b244fad8-e43d-0d20-26f1-372bba126d64}" SpecialFunc="None">
-    <Declaration><![CDATA[FUNCTION ToNcErrorCode : NcErrorCodes
+    <Declaration><![CDATA[(*
+Convert a NC error code of type UDINT to the NcErrorCodes datatype.
+
+## Example
+```
+ncErrorId := 17693;
+ncErrorCode := ToWin32ErrorCode(ncErrorId); // CONTROLLER_ERROR_DEAD_RANGE_NOT_ALLOWED;
+```
+
+## Source
+https://infosys.beckhoff.com/content/1033/tc3ncerrcode/1521556875.html?id=2911757239699425890
+*)
+FUNCTION ToNcErrorCode : NcErrorCodes
 VAR_INPUT
     errorCode : UDINT;
 END_VAR
