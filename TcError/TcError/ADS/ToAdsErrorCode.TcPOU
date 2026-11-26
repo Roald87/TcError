@@ -274,6 +274,28 @@ END_VAR
         ToAdsErrorCode := AdsErrorCodes.RTERR_NOMORESEMAS;
     4103:
         ToAdsErrorCode := AdsErrorCodes.RTERR_NOMOREQUEUES;
+    4109:
+        ToAdsErrorCode := AdsErrorCodes.RTERR_EXTIRQALREADYDEF;
+    4110:
+        ToAdsErrorCode := AdsErrorCodes.RTERR_EXTIRQNOTDEF;
+    4111:
+        ToAdsErrorCode := AdsErrorCodes.RTERR_EXTIRQINSTALLFAILED;
+    4112:
+        ToAdsErrorCode := AdsErrorCodes.RTERR_IRQLNOTLESSOREQUAL;
+    4119:
+        ToAdsErrorCode := AdsErrorCodes.RTERR_VMXNOTSUPPORTED;
+    4120:
+        ToAdsErrorCode := AdsErrorCodes.RTERR_VMXDISABLED;
+    4121:
+        ToAdsErrorCode := AdsErrorCodes.RTERR_VMXCONTROLSMISSING;
+    4122:
+        ToAdsErrorCode := AdsErrorCodes.RTERR_VMXENABLEFAILS;
+    10060:
+        ToAdsErrorCode := AdsErrorCodes.WSAETIMEDOUT;
+    10061:
+        ToAdsErrorCode := AdsErrorCodes.WSAECONNREFUSED;
+    10065:
+        ToAdsErrorCode := AdsErrorCodes.WSAEHOSTUNREACH;
 ELSE
     ToAdsErrorCode := AdsErrorCodes.ERR_UNKNOWN;
 END_CASE
